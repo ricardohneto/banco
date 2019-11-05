@@ -1,6 +1,8 @@
 package banco.classes;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public abstract class Conta implements Serializable{
     /**
@@ -12,12 +14,14 @@ public abstract class Conta implements Serializable{
     protected double saldo;
     private Cliente cliente;
     private Agencia agencia;
+    public ArrayList<Operacao> operacoes;
 
     public Conta(double saldo, Cliente cliente, Agencia agencia) {
         this.saldo = saldo;
         this.codConta = cont++;
         this.cliente = cliente;
         this.agencia = agencia;
+        this.operacoes = new ArrayList<Operacao>();
     }
 
     public int getCodConta() {
@@ -60,10 +64,12 @@ public abstract class Conta implements Serializable{
         return (this.codConta == (((Conta)contaAux).codConta));
     }
     
-    public void depositar(double valor) {
+    public boolean depositar(double valor) {
     	if(valor > 0) {
-    		this.saldo += valor;
-    	}
+            this.saldo += valor;
+            return true;
+        }
+        return false;
     }
     
     public boolean sacar(double valor) {
@@ -80,6 +86,24 @@ public abstract class Conta implements Serializable{
     		return true;
     	}
     	return false;
+    }
+
+    public String extrato(){
+        String extrato = "";
+        Iterator<Operacao> itOperacoes = operacoes.iterator();
+
+        Operacao operacaoAux = null;
+
+        System.out.println("[!] Lista de Operações:");
+        System.out.print("--------------------");
+
+		while (itOperacoes.hasNext()) { 
+			operacaoAux = (Operacao)itOperacoes.next(); 
+			extrato += operacaoAux.toString()+"\n--------------------"; 
+		}
+		System.out.println("\n");
+
+        return extrato;
     }
 
     public abstract double viraMes();

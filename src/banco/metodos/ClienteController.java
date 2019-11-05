@@ -76,11 +76,10 @@ public class ClienteController {
 		}
 	}
 
-	public static Cliente excluir(Cliente clienteAux){
+	public static Cliente excluir(Cliente clienteAux){		
 		if(App.clientes.remove(clienteAux)){
 			return clienteAux;
 		}
-
 		return null;
 	}
 

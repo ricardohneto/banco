@@ -230,23 +230,6 @@ public class ContaController {
 		return alterado;
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	public static boolean existe(int codConta) {
 		Conta contaAux = null;
 		boolean existe = false;

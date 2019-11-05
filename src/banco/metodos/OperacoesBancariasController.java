@@ -1,5 +1,10 @@
 package banco.metodos;
 
+import banco.classes.Conta;
+import banco.classes.Operacao;
+import banco.classes.Saque;
+import banco.classes.Deposito;
+import banco.classes.Transferencia;
 import banco.classes.Util;	
 
 public class OperacoesBancariasController {
@@ -14,7 +19,8 @@ public class OperacoesBancariasController {
 					"(1) - VER SALDO\n" + 
 					"(2) - DEPOSITAR\n" + 
 					"(3) - SACAR\n" + 
-					"(4) - TRANSFERIR\n" + 
+					"(4) - TRANSFERIR\n" +
+					"(5) - VER EXTRATO\n" + 
 					"(0) - VOLTAR\n=>");
 			op = Util.input.nextInt();
 			switch(op){
@@ -33,6 +39,8 @@ public class OperacoesBancariasController {
 			case 4:
 				formTransferir();
 				break;
+			case 5:
+				formVerExtrato();
 			default:
 				System.out.println("[+] op��o invalida!!!");
 				break;
@@ -62,6 +70,7 @@ public class OperacoesBancariasController {
 	public static void formDepositar(){
 		double valor = 0;
 		int codConta = 0;
+		Conta contaAux = null;
 
 		System.out.println("[?] informe o CODIGO da CONTA:");
 		codConta = Util.input.nextInt();
@@ -69,8 +78,14 @@ public class OperacoesBancariasController {
 		valor = Util.input.nextDouble();
 
 		if(ContaController.existe(codConta)){
-			ContaController.getConta(codConta).depositar(valor);
-			System.out.println("[+] dep�sito realizado com sucesso!!!");
+			contaAux = ContaController.getConta(codConta);
+			Operacao deposito = new Deposito(contaAux, valor);
+			
+			if(deposito.efetuar()){
+				System.out.println("[+] DEPOSITO realizado com SUCESSO!");
+			}else{
+				System.out.println("[+] falha ao DEPOSITAR!!!");
+			}
 		}else{
 			System.out.println("[+] conta n�o existe!!!");
 		}
@@ -81,17 +96,21 @@ public class OperacoesBancariasController {
 	public static void formSacar(){
 		double valor = 0; 
 		int codConta = 0;
-
+		Conta contaAux = null;
+		
 		System.out.println("[?] informe o CODIGO da CONTA:");
 		codConta = Util.input.nextInt();
 		System.out.println("[?] informe o VALOR para SACAR:");
 		valor = Util.input.nextDouble();
 
 		if(ContaController.existe(codConta)){
-			if(ContaController.getConta(codConta).sacar(valor)) {
-				System.out.println("[+] saque realizado !!!");
-			}else {
-				System.out.println("[+] erro ao sacar !!!");
+			contaAux = ContaController.getConta(codConta);
+			Operacao saque = new Saque(contaAux, valor);
+			
+			if(saque.efetuar()){
+				System.out.println("[+] SAQUE realizado com SUCESSO!");
+			}else{
+				System.out.println("[+] falha ao SACAR!!!");
 			}
 		}else{
 			System.out.println("[+] conta n�o existe!!!");
@@ -103,7 +122,9 @@ public class OperacoesBancariasController {
 	public static void formTransferir(){
 		double valor = 0;
 		int codConta = 0;
+		Conta contaOrigem = null;
 		int codConta2 = 0;
+		Conta contaDestino = null;
 
 		System.out.println("[?] informe o CODIGO de SUA CONTA:");
 		codConta = Util.input.nextInt();
@@ -114,14 +135,33 @@ public class OperacoesBancariasController {
 
 		if(ContaController.existe(codConta)){
 			if(ContaController.existe(codConta2)){ 
-				if(ContaController.getConta(codConta).transferir(valor, ContaController.getConta(codConta2))){
-					System.out.println("[+] transferencia realizada com sucesso !!!");
-				}else {
-					System.out.println("[+] erro ao transferir !!!");
+				contaOrigem = ContaController.getConta(codConta);
+				contaDestino = ContaController.getConta(codConta2);
+				Operacao transferencia = new Transferencia(contaOrigem, contaDestino, valor);
+			
+				if(transferencia.efetuar()){
+					System.out.println("[+] SAQUE realizado com SUCESSO!");
+				}else{
+					System.out.println("[+] falha ao SACAR!!!");
 				}
 			}
 		}else{
 			System.out.println("[+] conta n�o existe!!!");
 		}
 	}
+
+	public static void formVerExtrato(){
+		int codConta = 0;
+
+		System.out.println("[?] informe o CODIGO da sua CONTA");
+		codConta = Util.input.nextInt();
+
+		if(ContaController.existe(codConta)){
+			String extrato = ContaController.getConta(codConta).extrato();
+			System.out.println(extrato);
+		}else{
+			System.out.println("[+] conta n�o existe!!!");
+		}
+	}
+
 }
