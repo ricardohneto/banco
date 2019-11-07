@@ -22,7 +22,6 @@ public class App {
 
 	public static void main(String[] args) {
 
-		///
 		RelatoriosController.carregarDados();
 		MenuController.principal();
 		//RelatoriosController.gravarDados();
