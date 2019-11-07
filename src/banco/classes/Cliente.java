@@ -13,7 +13,7 @@ public class Cliente extends Pessoa{
 
 	@Override
 	public String toString() {
-		return this.getNome()+" / "+this.getCpf()+" / "+this.getTelefone();
+		return this.getNome()+" / "+this.getCpf()+" / (27)"+this.getTelefone()+"\n";
 	}
 
 }

@@ -26,7 +26,7 @@ public class MenuController{
 				gerenciarDados();
 				break;
 			case 2:
-				OperacoesBancariasController.menu();
+				OperacaoController.menu();
 				break;
 			case 3:
 				RelatoriosController.menu();

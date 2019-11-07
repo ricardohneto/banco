@@ -6,7 +6,7 @@ public class ContaPoupanca extends Conta {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private double rendimento;
+	protected double rendimento;
 	
 	public ContaPoupanca(double saldo, Cliente cliente, Agencia agencia, double rendimento) {
 		super(saldo, cliente, agencia);
@@ -28,7 +28,7 @@ public class ContaPoupanca extends Conta {
 
 	@Override
 	public String toString() {
-		return this.imprimirTipoConta()+" : "+this.getCodConta()+" [ "+this.getSaldo()+" / "+this.rendimento+" ]\nTitular:"+this.getCliente();
+		return this.imprimirTipoConta()+" : "+this.getCodConta()+" [ R$"+this.getSaldo()+" / "+this.rendimento+"% ]\nTitular:"+this.getCliente();
 	}
 
 	public double viraMes(){

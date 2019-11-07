@@ -1,8 +1,13 @@
 package banco.classes;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Saque implements Operacao{
+public class Saque implements Operacao, Serializable{
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     private Conta conta;
     private double valor;
     private Date data;

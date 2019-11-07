@@ -24,6 +24,7 @@ public class App {
 
 		RelatoriosController.carregarDados();
 		MenuController.principal();
+		//RelatoriosController.gravarDados();
 		Util.input.close();
 
 	}

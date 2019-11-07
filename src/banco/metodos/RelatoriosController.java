@@ -60,7 +60,7 @@ public class RelatoriosController {
 	public static void exibeRelatorioAgencia(){
 		Agencia agenciaAux = null;
 
-		System.out.println("[!] Lista de Ag�ncias:");
+		System.out.println("[!] Lista de Ag�ncias:\n------------------------------\nNome & Código   / Gerente\n------------------------------\n");
 
 		App.itAgencias = App.agencias.iterator();
 
@@ -68,13 +68,13 @@ public class RelatoriosController {
 			agenciaAux = (Agencia) App.itAgencias.next(); 
 			System.out.println(agenciaAux.toString()); 
 		}
-		System.out.println("\n");
+		System.out.println("------------------------------\n");
 	}
 
 	public static void exibeRelatorioCliente(){
 		Cliente clienteAux = null;
 
-		System.out.println("[!] Lista de Clientes:");
+		System.out.println("[!] Lista de Clientes:\n------------------------------\nNome     / CPF / Telefone\n------------------------------");
 
 		App.itClientes = App.clientes.iterator();
 
@@ -83,13 +83,13 @@ public class RelatoriosController {
 			clienteAux = (Cliente) App.itClientes.next(); 
 			System.out.println(clienteAux.toString()); 
 		}
-		System.out.println("\n");
+		System.out.println("------------------------------\n");
 	}
 
 	public static void exibeRelatorioContas(){
 		Conta contaAux = null;
 
-		System.out.println("[!] Lista de Contas:");
+		System.out.println("[!] Lista de Contas:\n------------------------------");
 
 		App.itContas = App.contas.iterator();
 
@@ -97,13 +97,13 @@ public class RelatoriosController {
 			contaAux = (Conta) App.itContas.next(); 
 			System.out.println(contaAux.toString()); 
 		}
-		System.out.println("\n");
+		System.out.println("------------------------------\n");
 	}
 
 	public static void exibeRelatorioGerente(){
 		Gerente gerenteAux = null;
 
-		System.out.println("[!] Lista de Gerentes:");
+		System.out.println("[!] Lista de Gerentes:\n------------------------------");
 
 		App.itGerentes = App.gerentes.iterator(); 
 
@@ -111,7 +111,7 @@ public class RelatoriosController {
 			gerenteAux = (Gerente) App.itGerentes.next(); 
 			System.out.println(gerenteAux.toString()); 
 		}
-		System.out.println("\n");
+		System.out.println("------------------------------\n");
 	}
 
 	//  [1.3.2] - gravar dados
@@ -125,7 +125,7 @@ public class RelatoriosController {
 
 	public static void gravarDadosAgencia(){
 		try{
-			FileOutputStream arq = new FileOutputStream("C:/Users/ricar/Documents/Ricardo/Programação/Workspace/banco-v3.0/src/banco/relatorios/agencias.arq");
+			FileOutputStream arq = new FileOutputStream("C:/Users/ricar/Documents/Ricardo/Programação/Workspace/banco/src/banco/relatorios/agencias.arq");
 			ObjectOutputStream obj = new ObjectOutputStream(arq);
 				
 			obj.writeObject(App.agencias);
@@ -143,7 +143,7 @@ public class RelatoriosController {
 	public static void gravarDadosCliente(){
 		try{
 
-			FileOutputStream arq = new FileOutputStream("C:/Users/ricar/Documents/Ricardo/Programação/Workspace/banco-v3.0/src/banco/relatorios/clientes.arq");
+			FileOutputStream arq = new FileOutputStream("C:/Users/ricar/Documents/Ricardo/Programação/Workspace/banco/src/banco/relatorios/clientes.arq");
 			ObjectOutputStream obj = new ObjectOutputStream(arq);
 			
 			obj.writeObject(App.clientes);
@@ -161,7 +161,7 @@ public class RelatoriosController {
 	public static void gravarDadosConta(){
 		try{
 
-			FileOutputStream arq = new FileOutputStream("C:/Users/ricar/Documents/Ricardo/Programação/Workspace/banco-v3.0/src/banco/relatorios/contas.arq");
+			FileOutputStream arq = new FileOutputStream("C:/Users/ricar/Documents/Ricardo/Programação/Workspace/banco/src/banco/relatorios/contas.arq");
 			ObjectOutputStream obj = new ObjectOutputStream(arq);
 				
 			obj.writeObject(App.contas);
@@ -181,7 +181,7 @@ public class RelatoriosController {
 		try{
 
 			
-			FileOutputStream arq = new FileOutputStream("C:/Users/ricar/Documents/Ricardo/Programação/Workspace/banco-v3.0/src/banco/relatorios/gerentes.arq");
+			FileOutputStream arq = new FileOutputStream("C:/Users/ricar/Documents/Ricardo/Programação/Workspace/banco/src/banco/relatorios/gerentes.arq");
 			ObjectOutputStream obj = new ObjectOutputStream(arq);
 				
 			obj.writeObject(App.gerentes);
@@ -211,7 +211,7 @@ public class RelatoriosController {
 		
 		try {
 
-			FileInputStream arq = new FileInputStream("C:/Users/ricar/Documents/Ricardo/Programação/Workspace/banco-v3.0/src/banco/relatorios/agencias.arq");
+			FileInputStream arq = new FileInputStream("C:/Users/ricar/Documents/Ricardo/Programação/Workspace/banco/src/banco/relatorios/agencias.arq");
 			ObjectInputStream obj = new ObjectInputStream(arq);
 			App.agencias = (ArrayList<Agencia>) obj.readObject();
 
@@ -224,7 +224,7 @@ public class RelatoriosController {
 
 		try {
 
-			FileInputStream arq = new FileInputStream("C:\\Users\\ricar\\Documents\\Ricardo\\Programação\\Workspace\\banco-v3.0\\src\\banco\\relatorios\\clientes.arq");
+			FileInputStream arq = new FileInputStream("C:\\Users\\ricar\\Documents\\Ricardo\\Programação\\Workspace\\banco\\src\\banco\\relatorios\\clientes.arq");
 			ObjectInputStream obj = new ObjectInputStream(arq);
 			App.clientes = (ArrayList<Cliente>)obj.readObject();
 			
@@ -237,7 +237,7 @@ public class RelatoriosController {
 	public static void carregarDadosConta(){
 		try {
 
-			FileInputStream arq = new FileInputStream("C:/Users/ricar/Documents/Ricardo/Programação/Workspace/banco-v3.0/src/banco/relatorios/contas.arq");
+			FileInputStream arq = new FileInputStream("C:/Users/ricar/Documents/Ricardo/Programação/Workspace/banco/src/banco/relatorios/contas.arq");
 			ObjectInputStream obj = new ObjectInputStream(arq);
 			App.contas = (ArrayList<Conta>)obj.readObject();
 			
@@ -250,7 +250,7 @@ public class RelatoriosController {
 	public static void carregarDadosGerente(){
 		try {
 
-			FileInputStream arq = new FileInputStream("C:/Users/ricar/Documents/Ricardo/Programação/Workspace/banco-v3.0/src/banco/relatorios/gerentes.arq");
+			FileInputStream arq = new FileInputStream("C:/Users/ricar/Documents/Ricardo/Programação/Workspace/banco/src/banco/relatorios/gerentes.arq");
 			ObjectInputStream obj = new ObjectInputStream(arq);
 			App.gerentes = (ArrayList<Gerente>)obj.readObject();
 

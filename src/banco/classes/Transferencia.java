@@ -1,8 +1,13 @@
 package banco.classes;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Transferencia implements Operacao {
+public class Transferencia implements Operacao, Serializable {
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     private Conta contaOrigem;
     private Conta contaDestino;
     private double valor;
@@ -27,7 +32,7 @@ public class Transferencia implements Operacao {
 
     @Override
     public String toString() {
-        return "Saque de:\n" + contaOrigem.toString() + "Para:\n" + contaDestino.toString() + "\nRealizado no dia: " + data + "\nNo valor de: R$" + valor;
+        return "\nTransferência de:\n" + contaOrigem.toString() + "Para:\n" + contaDestino.toString() + "\nRealizado no dia: " + data + "\nNo valor de: R$" + valor;
     }
     
 }

@@ -51,7 +51,7 @@ public class Agencia implements Serializable{
 
 	@Override
 	public String toString() {
-		return this.nome+" : "+this.codAgencia+"\n Gerente: "+this.getGerente().toString();
+		return this.nome+" : "+this.codAgencia+" / Gerente: "+this.getGerente().toString()+"\n";
 	}
 
 	@Override

@@ -6,9 +6,9 @@ public class ContaCorrente extends Conta {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private double limite;
-	private double juros;
-	private double tarifa;
+	protected double limite;
+	protected double juros;
+	protected double tarifa;
 	
 	public ContaCorrente(double saldo, Cliente cliente, Agencia agencia, double limite, double juros,
 			double tarifa) {
@@ -49,7 +49,7 @@ public class ContaCorrente extends Conta {
 	
 	@Override
 	public String toString() {
-		return this.imprimirTipoConta()+" : "+this.getCodConta()+" [ "+this.getSaldo()+" / "+this.limite+" / "+this.juros+" / "+this.tarifa+" ]\nTitular:"+this.getCliente();
+		return this.imprimirTipoConta()+" : "+this.getCodConta()+" [ R$"+this.getSaldo()+" / R$"+this.limite+" / "+this.juros+"% / "+this.tarifa+"% ]\nTitular:"+this.getCliente();
 	}
 
 	public boolean sacar(double valor) {
@@ -59,7 +59,7 @@ public class ContaCorrente extends Conta {
     	}
     	return false;
     }
-
+	
 	public double viraMes(){
 		double saldoAnterior = this.saldo;
 
