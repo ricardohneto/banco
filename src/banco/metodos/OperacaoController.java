@@ -21,7 +21,7 @@ public class OperacaoController {
 		do {
 
 			System.out.print("\n\nMENU DE OPERA��ES BANCARIAS\n" + "(1) - VER SALDO\n" + "(2) - DEPOSITAR\n"
-					+ "(3) - SACAR\n" + "(4) - TRANSFERIR\n" + "(5) - VER EXTRATO\n" + "(0) - VOLTAR\n=>");
+					+ "(3) - SACAR\n" + "(4) - TRANSFERIR\n" + "(5) - VER EXTRATO\n" + "(6) - VIRA MES\n(0) - VOLTAR\n=>");
 			op = Util.input.nextInt();
 			switch (op) {
 			case 0:
