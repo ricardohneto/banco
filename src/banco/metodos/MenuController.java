@@ -12,7 +12,7 @@ public class MenuController{
 
 			System.out.print("\n\nMENU PRINCIPAL\n" + 
 					"(1) - GERENCIAMENTO DE DADOS\n" + 
-					"(2) - OPERA��ES BANCARIAS\n" + 
+					"(2) - OPERACOES BANCARIAS\n" + 
 					"(3) - RELATORIOS\n" +
 					"(0) - SAIR DO PROGRAMA\n" + 
 					"=>");

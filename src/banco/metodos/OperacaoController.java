@@ -166,6 +166,7 @@ public class OperacaoController {
 	public static void formViraMes(){
 		Operacao viraMes = null;
 
+		Conta conta = null;
 		ContaCorrente contaCorrente = null;
 		ContaPoupanca contaPoupanca = null;
 
@@ -173,12 +174,14 @@ public class OperacaoController {
 
 		while(App.itContas.hasNext()){
 			if(App.itContas.next() instanceof ContaCorrente){
-				contaCorrente = (ContaCorrente) App.itContas.next();
+				conta = (Conta) App.itContas.next();
+				contaCorrente = (ContaCorrente) conta;
 				viraMes = new Tarifacao(contaCorrente);
 				viraMes.efetuar();
 			}else{
 				if(App.itContas.next() instanceof ContaPoupanca){
-					contaPoupanca = (ContaPoupanca) App.itContas.next();
+					conta = (Conta) App.itContas.next();
+					contaPoupanca = (ContaPoupanca) conta;
 					viraMes = new Rendimento(contaPoupanca);
 					viraMes.efetuar();
 				}
