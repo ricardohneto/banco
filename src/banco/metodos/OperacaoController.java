@@ -20,7 +20,7 @@ public class OperacaoController {
 
 		do {
 
-			System.out.print("\n\nMENU DE OPERA��ES BANCARIAS\n" + "(1) - VER SALDO\n" + "(2) - DEPOSITAR\n"
+			System.out.print("\n\nMENU DE OPERACOES BANCARIAS\n" + "(1) - VER SALDO\n" + "(2) - DEPOSITAR\n"
 					+ "(3) - SACAR\n" + "(4) - TRANSFERIR\n" + "(5) - VER EXTRATO\n" + "(6) - VIRA MES\n(0) - VOLTAR\n=>");
 			op = Util.input.nextInt();
 			switch (op) {
@@ -44,7 +44,7 @@ public class OperacaoController {
 			case 6:
 				formViraMes();
 			default:
-				System.out.println("[+] op��o invalida!!!");
+				System.out.println("[+] opcao invalida!!!");
 				break;
 			}
 
@@ -63,7 +63,7 @@ public class OperacaoController {
 			double saldo = ContaController.getConta(codConta).getSaldo();
 			System.out.println(saldo);
 		} else {
-			System.out.println("[+] conta n�o existe!!!");
+			System.out.println("[+] conta nao existe!!!");
 		}
 	}
 
@@ -86,7 +86,7 @@ public class OperacaoController {
 				System.out.println("[+] falha ao DEPOSITAR!!!");
 			}
 		} else {
-			System.out.println("[+] conta n�o existe!!!");
+			System.out.println("[+] conta nao existe!!!");
 		}
 	}
 
@@ -175,13 +175,13 @@ public class OperacaoController {
 		while(App.itContas.hasNext()){
 			if(App.itContas.next() instanceof ContaCorrente){
 				conta = (Conta) App.itContas.next();
-				contaCorrente = (ContaCorrente) conta;
+				contaCorrente = (ContaCorrente) conta; // erro aqui
 				viraMes = new Tarifacao(contaCorrente);
 				viraMes.efetuar();
 			}else{
 				if(App.itContas.next() instanceof ContaPoupanca){
 					conta = (Conta) App.itContas.next();
-					contaPoupanca = (ContaPoupanca) conta;
+					contaPoupanca = (ContaPoupanca) conta; // erro aqui
 					viraMes = new Rendimento(contaPoupanca);
 					viraMes.efetuar();
 				}
