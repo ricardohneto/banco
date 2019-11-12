@@ -1,7 +1,7 @@
 package banco.classes;
 
 public class Tarifacao implements Operacao{
-    ContaCorrente conta;
+    private ContaCorrente conta;
 
     public Tarifacao(ContaCorrente conta) {
         this.conta = conta;

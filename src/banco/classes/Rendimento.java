@@ -1,7 +1,7 @@
 package banco.classes;
 
 public class Rendimento implements Operacao{
-    ContaPoupanca conta;
+    private ContaPoupanca conta;
 
     public Rendimento(ContaPoupanca conta) {
         this.conta = conta;

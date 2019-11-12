@@ -54,6 +54,8 @@ public abstract class Conta implements Serializable{
 
     @Override
     public abstract String toString();
+
+    public abstract double viraMes();
     
     public String imprimirTipoConta() {
     	return "Conta";
@@ -94,18 +96,14 @@ public abstract class Conta implements Serializable{
 
         Operacao operacaoAux = null;
 
-        System.out.println("[!] Lista de Operações:");
-        System.out.print("--------------------");
+        System.out.println("[!] Lista de Operações:\n--------------------");
 
 		while (itOperacoes.hasNext()) { 
 			operacaoAux = (Operacao)itOperacoes.next(); 
-			extrato += operacaoAux.toString()+"\n--------------------"; 
+			extrato += operacaoAux.toString()+"\n--------------------\n"; 
 		}
 		System.out.println("\n");
 
         return extrato;
     }
-
-    public abstract double viraMes();
-
 }

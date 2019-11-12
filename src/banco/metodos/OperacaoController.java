@@ -41,8 +41,10 @@ public class OperacaoController {
 				break;
 			case 5:
 				formVerExtrato();
+				break;
 			case 6:
 				formViraMes();
+				break;
 			default:
 				System.out.println("[+] opcao invalida!!!");
 				break;
@@ -50,8 +52,6 @@ public class OperacaoController {
 
 		} while (!sair);
 	}
-
-	// [1.2.1] - ver saldo
 
 	public static void formVerSaldo() {
 		int codConta = 0;
@@ -66,8 +66,6 @@ public class OperacaoController {
 			System.out.println("[+] conta nao existe!!!");
 		}
 	}
-
-	// [1.2.2] - depositar
 
 	public static void formDepositar() {
 
@@ -89,8 +87,6 @@ public class OperacaoController {
 			System.out.println("[+] conta nao existe!!!");
 		}
 	}
-
-	// [1.2.3] - sacar
 
 	public static void formSacar() {
 		double valor = 0;
@@ -115,8 +111,6 @@ public class OperacaoController {
 			System.out.println("[+] conta n�o existe!!!");
 		}
 	}
-
-	// [1.2.4] - transferir
 
 	public static void formTransferir() {
 		double valor = 0;
