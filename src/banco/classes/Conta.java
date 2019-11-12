@@ -96,13 +96,12 @@ public abstract class Conta implements Serializable{
 
         Operacao operacaoAux = null;
 
-        System.out.println("[!] Lista de Operações:\n--------------------");
+        System.out.println("[!] Lista de Operações:\n########################################");
 
 		while (itOperacoes.hasNext()) { 
-			operacaoAux = (Operacao)itOperacoes.next(); 
-			extrato += operacaoAux.toString()+"\n--------------------\n"; 
+            operacaoAux = (Operacao)itOperacoes.next();
+			extrato += "------------------------------\n"+operacaoAux.toString()+"\n------------------------------\n"; 
 		}
-		System.out.println("\n");
 
         return extrato;
     }

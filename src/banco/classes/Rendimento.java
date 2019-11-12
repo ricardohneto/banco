@@ -1,17 +1,32 @@
 package banco.classes;
 
-public class Rendimento implements Operacao{
-    private ContaPoupanca conta;
+import java.io.Serializable;
+import java.util.Date;
 
-    public Rendimento(ContaPoupanca conta) {
+
+public class Rendimento implements Operacao, Serializable{
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    private Conta conta;
+    private double valor;
+    private Date data;
+
+    public Rendimento(Conta conta) {
         this.conta = conta;
     }
     
     public boolean efetuar(){
-		double saldoAnterior = this.conta.saldo;
-		this.conta.saldo += this.conta.saldo * this.conta.rendimento;
-        this.conta.saldo -= saldoAnterior;
+		this.valor = this.conta.viraMes();
+        this.conta.operacoes.add(this);
+        this.data = new Date(System.currentTimeMillis());
         return true;
-	}
+    }
+    
+    @Override
+    public String toString() {
+        return "RENDIMENTO DE: "+ conta.imprimirTipoConta()+" : "+conta.getCodConta()+"\nREALIZADO NO DIA: " + data + "\nNO VALOR DE: R$" + valor;
+    }
 
 }

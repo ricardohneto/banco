@@ -32,7 +32,7 @@ public class Transferencia implements Operacao, Serializable {
 
     @Override
     public String toString() {
-        return "Transferência de:\n" + contaOrigem.toString() + "Para:\n" + contaDestino.toString() + "\nRealizado no dia: " + data + "\nNo valor de: R$" + valor;
+        return "TRANSFERENCIA DE: "+ contaOrigem.imprimirTipoConta()+" : "+contaOrigem.getCodConta()+"\nPARA: "+ contaDestino.imprimirTipoConta()+" : "+contaDestino.getCodConta()+"\nREALIZADO NO DIA: " + data + "\nNO VALOR DE: R$" + valor;
     }
     
 }

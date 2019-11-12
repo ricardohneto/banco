@@ -12,7 +12,10 @@ public class Gerente extends Funcionario {
 
 	@Override
 	public String toString() {
-		return this.getNome()+" / "+this.getCpf()+" / (27)"+this.getTelefone()+" / R$"+this.getSalario()+"\n";
+		return "GERENTE: "+this.getNome()+
+		"\nCPF: "+this.getCpf()+
+		"\nTELEFONE: (27)"+this.getTelefone()+
+		"\nSALARIO: R$"+this.getSalario();
 	}
     
     

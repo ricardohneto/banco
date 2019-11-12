@@ -44,12 +44,17 @@ public class ContaCorrente extends Conta {
 	
 	@Override
 	public String imprimirTipoConta() {
-    	return "Conta Corrente";
+    	return "Corrente";
     }
 	
 	@Override
 	public String toString() {
-		return this.imprimirTipoConta()+" : "+this.getCodConta()+" [ R$"+this.getSaldo()+" / R$"+this.limite+" / "+this.juros+"% / "+this.tarifa+"% ]\nTitular:"+this.getCliente();
+		return this.imprimirTipoConta()+" : "+this.getCodConta()+
+		"\n     SALDO: R$"+this.getSaldo()+
+		"\n     LIMITE: R$"+this.limite+
+		"\n     JUROS: "+this.juros+
+		"%\n     TARIFA: "+this.tarifa+
+		"%\nTITULAR:\n     "+this.getCliente();
 	}
 
 	public boolean sacar(double valor) {

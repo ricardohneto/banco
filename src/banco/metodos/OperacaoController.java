@@ -143,6 +143,8 @@ public class OperacaoController {
 		}
 	}
 
+	// apresentar [ daqui p/ baixo ]
+
 	public static void formVerExtrato() {
 		int codConta = 0;
 
@@ -152,6 +154,7 @@ public class OperacaoController {
 		if (ContaController.existe(codConta)) {
 			String extrato = ContaController.getConta(codConta).extrato();
 			System.out.println(extrato);
+			System.out.println("########################################\n");
 		} else {
 			System.out.println("[+] conta n�o existe!!!");
 		}
@@ -161,26 +164,23 @@ public class OperacaoController {
 		Operacao viraMes = null;
 
 		Conta conta = null;
-		ContaCorrente contaCorrente = null;
-		ContaPoupanca contaPoupanca = null;
 
 		App.itContas = App.contas.iterator();
 
 		while(App.itContas.hasNext()){
-			if(App.itContas.next() instanceof ContaCorrente){
-				conta = (Conta) App.itContas.next();
-				contaCorrente = (ContaCorrente) conta; // erro aqui
-				viraMes = new Tarifacao(contaCorrente);
+			conta = (Conta) App.itContas.next();
+			if(conta instanceof ContaCorrente){
+				viraMes = new Tarifacao(conta);
 				viraMes.efetuar();
 			}else{
-				if(App.itContas.next() instanceof ContaPoupanca){
-					conta = (Conta) App.itContas.next();
-					contaPoupanca = (ContaPoupanca) conta; // erro aqui
-					viraMes = new Rendimento(contaPoupanca);
+				if(conta instanceof ContaPoupanca){
+					viraMes = new Rendimento(conta);
 					viraMes.efetuar();
 				}
-			}	
+			} 	
 		}
+		System.out.println("[!] operação de vira mes realizada com sucesso!!!");
+
 	}
 }
 

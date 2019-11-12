@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 import banco.app.App;
 import banco.classes.Agencia;
@@ -11,8 +12,6 @@ import banco.classes.Cliente;
 import banco.classes.Conta;
 import banco.classes.Gerente;
 import banco.classes.Util;
-
-import java.util.ArrayList;
 
 public class RelatoriosController {
 
@@ -60,58 +59,66 @@ public class RelatoriosController {
 	public static void exibeRelatorioAgencia(){
 		Agencia agenciaAux = null;
 
-		System.out.println("[!] Lista de Ag�ncias:\n------------------------------\nNome & Código   / Gerente\n------------------------------\n");
+		System.out.println("[!] Lista de Ag�ncias:\n########################################");
 
 		App.itAgencias = App.agencias.iterator();
 
 		while (App.itAgencias.hasNext()) { 
-			agenciaAux = (Agencia) App.itAgencias.next(); 
-			System.out.println(agenciaAux.toString()); 
+			agenciaAux = (Agencia) App.itAgencias.next();
+			System.out.println("------------------------------"); 
+			System.out.println(agenciaAux.toString());
+			System.out.println("------------------------------"); 
 		}
-		System.out.println("------------------------------\n");
+		System.out.println("########################################\n");
 	}
 
 	public static void exibeRelatorioCliente(){
 		Cliente clienteAux = null;
 
-		System.out.println("[!] Lista de Clientes:\n------------------------------\nNome     / CPF / Telefone\n------------------------------");
+		System.out.println("[!] Lista de Clientes:\n########################################");
 
 		App.itClientes = App.clientes.iterator();
 
 
 		while (App.itClientes.hasNext()) { 
 			clienteAux = (Cliente) App.itClientes.next(); 
-			System.out.println(clienteAux.toString()); 
+			System.out.println("------------------------------");
+			System.out.println(clienteAux.toString());
+			System.out.println("------------------------------");
 		}
-		System.out.println("------------------------------\n");
+		System.out.println("########################################\n");
 	}
 
 	public static void exibeRelatorioContas(){
 		Conta contaAux = null;
 
-		System.out.println("[!] Lista de Contas:\n------------------------------");
+		System.out.println("[!] Lista de Contas:\n########################################");
 
 		App.itContas = App.contas.iterator();
 
 		while (App.itContas.hasNext()) { 
 			contaAux = (Conta) App.itContas.next(); 
+			System.out.println("------------------------------");
 			System.out.println(contaAux.toString()); 
+			System.out.println("------------------------------");
 		}
-		System.out.println("------------------------------\n");
+		System.out.println("########################################\n");
 	}
 
 	public static void exibeRelatorioGerente(){
 		Gerente gerenteAux = null;
 
-		System.out.println("[!] Lista de Gerentes:\n------------------------------");
+		System.out.println("[!] Lista de Gerentes:\n########################################");
 
 		App.itGerentes = App.gerentes.iterator(); 
 
 		while (App.itGerentes.hasNext()) { 
 			gerenteAux = (Gerente) App.itGerentes.next(); 
+			System.out.println("------------------------------");
 			System.out.println(gerenteAux.toString()); 
+			System.out.println("------------------------------");
 		}
-		System.out.println("------------------------------\n");
+		System.out.println("########################################\n");
 	}
 
 	//  [1.3.2] - gravar dados

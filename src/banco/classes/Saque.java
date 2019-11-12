@@ -29,6 +29,6 @@ public class Saque implements Operacao, Serializable{
 
     @Override
     public String toString() {
-        return "Saque de:\n" + conta.toString() + "\nRealizado no dia: " + data + "\nNo valor de: R$" + valor;
+        return "SAQUE DE: "+ conta.imprimirTipoConta()+" : "+conta.getCodConta()+"\nREALIZADO NO DIA: " + data + "\nNO VALOR DE: R$" + valor;
     }
 }

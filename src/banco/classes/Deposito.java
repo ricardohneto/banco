@@ -29,7 +29,7 @@ public class Deposito implements Operacao, Serializable{
 
     @Override
     public String toString() {
-        return "Depósito de:\n" + conta.toString() + "\nRealizado no dia: " + data + "\nNo valor de: R$" + valor;
+        return "DEPOSITO DE: "+ conta.imprimirTipoConta()+" : "+conta.getCodConta()+"\nREALIZADO NO DIA: " + data + "\nNO VALOR DE: R$" + valor;
     }
     
     

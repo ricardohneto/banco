@@ -23,12 +23,15 @@ public class ContaPoupanca extends Conta {
 	
 	@Override
 	public String imprimirTipoConta() {
-    	return "Conta Poupan�a";
+    	return "Poupanca";
     }
 
 	@Override
 	public String toString() {
-		return this.imprimirTipoConta()+" : "+this.getCodConta()+" [ R$"+this.getSaldo()+" / "+this.rendimento+"% ]\nTitular:"+this.getCliente();
+		return this.imprimirTipoConta()+" : "+this.getCodConta()+
+		"\n     SALDO: R$"+this.getSaldo()+
+		"\n     RENDIMENTO: "+this.rendimento+
+		"%\nTITULAR:\n     "+this.getCliente();
 	}
 
 	public double viraMes(){
